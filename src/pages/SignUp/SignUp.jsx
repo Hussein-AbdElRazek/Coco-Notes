@@ -1,18 +1,20 @@
 import React from 'react'
 import { useSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 
 import useHttp from '../../hooks/use-http';
 import SignUpUi from './SignUpUi';
 
 const SignUp = () =>
 {
+    const navigate = useNavigate();
     const { enqueueSnackbar: popMessage } = useSnackbar();
     const {
         isLoading: isLoadingSignUp,
         sendRequest: signUp
     } = useHttp();
 
-    const handleSignUp = (values, { resetForm }) =>
+    const handleSignUp = (values) =>
     {
         const getResponse = ({ message }) =>
         {
@@ -21,7 +23,7 @@ const SignUp = () =>
                 popMessage("Account created successfully", {
                     variant: "success",
                 });
-                resetForm();
+                navigate("/login", { replace: true });
             }
         };
         signUp(
@@ -32,7 +34,6 @@ const SignUp = () =>
             },
             getResponse
         );
-        console.log("v", values)
     }
     return (
         <SignUpUi

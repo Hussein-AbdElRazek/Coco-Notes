@@ -3,12 +3,7 @@
   padding: 0;
 }
 
-
-html, body{
-margin: 0 !important;
-padding: 0 !important;
-/* background-color: brown; */
-}
+/* to handle remove img in sign in/up page in small screen */
 @media (max-width: 800px) {
   #signUpBackground{
     display: none;
@@ -17,9 +12,3 @@ padding: 0 !important;
     justify-content: center;
   }
 }
-
-
-
-/* .MuiFormLabel-root-MuiInputLabel-root label{
-  color: var(--white) !important;
-} */

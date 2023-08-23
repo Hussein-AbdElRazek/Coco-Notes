@@ -1,5 +1,7 @@
-import { Box, Card } from '@mui/material'
 import React from 'react'
+import { Box, Card } from '@mui/material'
+
+import BigLogo from './BigLogo'
 
 const FormCard = (props) =>
 {
@@ -21,6 +23,7 @@ const FormCard = (props) =>
                     p: 5,
                     backgroundColor: "var(--dark-grey)"
                 }}>
+                <BigLogo />
                 {props.children}
             </Card>
         </Box>

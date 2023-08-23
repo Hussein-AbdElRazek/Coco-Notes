@@ -1,21 +1,22 @@
 import React from 'react'
-import { Box, Card } from '@mui/material'
+import { Link, Typography } from '@mui/material'
 import { LoadingButton } from '@mui/lab';
+import { NavLink } from 'react-router-dom';
+
 import FormContainer from '../../components/formik/FormContainer'
 import { LoopOnInputs } from '../../helpers/LoopOnInputs';
 import { signUpInitialValues, signUpInputs } from './signUpInputsData';
 import { signUpValidationSchema } from './signUpValidationSchema';
-import signUpBackground from './assets/signUpBackground2.svg'
-import BigLogo from '../../components/ui/BigLogo';
+import signUpBackground from './assets/signUpBackground.svg'
 import FormCard from '../../components/ui/FormCard';
 import SignUpInCard from '../../components/ui/SignUpInCard';
+import FormBackground from '../../components/ui/FormBackground';
 const SignUpUi = (props) =>
 {
   const { handleSignUp, isLoadingSignUp } = props;
   return (
     <SignUpInCard>
       <FormCard>
-        <BigLogo />
         <FormContainer
           initialValues={signUpInitialValues}
           validationSchema={signUpValidationSchema}
@@ -32,14 +33,16 @@ const SignUpUi = (props) =>
           >
             Sign Up
           </LoadingButton>
+          <Typography variant="body2" mt={2}>
+            {"Have an account already? "}
+            <Link component={NavLink} to="/login">
+              Login
+            </Link>
+          </Typography>
         </FormContainer>
       </FormCard>
 
-      <Box id="signUpBackground" sx={{
-        width: "50%", height: "100vh", display: "flex", alignItems: "center",
-      }}>
-        <img src={signUpBackground} alt="Sign Up Background" style={{ width: "90%", }} />
-      </Box>
+      <FormBackground img={signUpBackground} />
     </SignUpInCard >
   )
 }
