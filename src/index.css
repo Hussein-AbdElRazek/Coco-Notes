@@ -2,13 +2,3 @@
   margin: 0 ;
   padding: 0;
 }
-
-/* to handle remove img in sign in/up page in small screen */
-@media (max-width: 800px) {
-  #signUpBackground{
-    display: none;
-  }
-  #signUpInPage {
-    justify-content: center;
-  }
-}

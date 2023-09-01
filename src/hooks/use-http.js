@@ -36,6 +36,9 @@ const useHttp = () =>
             {
                 message = data.message;
                 message = message.toLowerCase();
+                if (message.includes("success")) { popMessage(message, { variant: "success" }) }
+                else { popMessage(message) }
+
             }
             if (message !== "success" &&
                 message !== "success and a verfication mail was sent")
@@ -45,6 +48,7 @@ const useHttp = () =>
 
         } catch (error)
         {
+            setIsLoading(false)
             popMessage(error.message || "Something went wrong", { variant: "error" })
         }
         setIsLoading(false)
