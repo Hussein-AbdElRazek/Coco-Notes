@@ -39,7 +39,7 @@ const LoginUi = (props) =>
                     </Typography>
                 </FormContainer>
             </FormCard>
-            <FormBackground img={LoginBackground}/>
+            {/* <FormBackground img={LoginBackground}/> */}
         </SignUpInCard>
     )
 }

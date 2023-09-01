@@ -42,7 +42,7 @@ const SignUpUi = (props) =>
         </FormContainer>
       </FormCard>
 
-      <FormBackground img={signUpBackground} />
+      {/* <FormBackground img={signUpBackground} /> */}
     </SignUpInCard >
   )
 }
