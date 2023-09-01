@@ -4,7 +4,7 @@ import { mergeToUnique } from '../helpers/mergeToUnique';
 
 const initialNotesState = {
     notes: [],
-    isNoteOpened:false
+    isNoteOpened: false
 }
 
 const notesSlice = createSlice({
@@ -29,16 +29,18 @@ const notesSlice = createSlice({
             {
                 if (ele._id === action.payload._id)
                 {
-                    return action.payload
+                    return { ...ele, noteAbstract: action.payload.noteAbstract }
                 }
                 else return ele;
             })
         },
-        openNote(state){
-            state.isNoteOpened=true;
+        openNote(state)
+        {
+            state.isNoteOpened = true;
         },
-        closeNote(state){
-            state.isNoteOpened=false;
+        closeNote(state)
+        {
+            state.isNoteOpened = false;
         },
 
     }

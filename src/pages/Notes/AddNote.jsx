@@ -16,8 +16,11 @@ const AddNote = () =>
         {
             if (message === "success")
             {
+                values.createdAt = new Date();
                 dispatch(notesActions.addNote(values))
                 resetForm();
+                //TODO when zezo handle id remove it
+                window.location.reload();
             }
         };
         addNote(

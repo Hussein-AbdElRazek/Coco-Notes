@@ -23,9 +23,10 @@ function App()
       <CssBaseline />
       <Routes>
         <Route path='signup' element={<SignUp />} />
-        <Route path='login' element={<Login />} />
         {authCtx.isLoggedIn && <Route path='/*' element={<Home />} />}
-      </Routes> 
+        {!authCtx.isLoggedIn && <Route path='login' element={<Login />} />}
+        {(authCtx.isLoggedIn) ? <Route path="*" element={<Navigate to="/notes" replace={true} />} /> : <Route path="*" element={<Navigate to="/login" replace={true} />} />}
+      </Routes>
     </ThemeProvider>
   );
 }

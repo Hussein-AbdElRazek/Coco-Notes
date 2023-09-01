@@ -4,6 +4,7 @@ import { useSelector, useDispatch, } from 'react-redux';
 import NotesUi from './NotesUi'
 import useHttp from '../../hooks/use-http'
 import { notesActions } from '../../store/notes-slice';
+//TODO add img
 const AllNotes = () =>
 {
     const dispatch = useDispatch();

@@ -1,6 +1,7 @@
 import { Box, Card, CardActionArea, CardContent, CircularProgress, Grid, Typography } from '@mui/material'
 import React, { useCallback, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
+import moment from "moment/moment";
 
 import NoteDialog from './NoteDialog';
 import { notesActions } from '../../store/notes-slice';
@@ -69,57 +70,66 @@ const NotesUi = (props) =>
             my={3}
         >
             {(notes.length === 0 && !isLoadingGetAllNotes) && <Typography sx={{ width: "100%", textAlign: "center" }}>No notes yet!</Typography>}
-            {notes.map(({ noteAbstract, _id }, index) => (
-                <Grid
-                    item
-                    xl={2}
-                    lg={3}
-                    md={4}
-                    sm={6}
-                    xs={12}
-                    key={_id}
-                >
-                    <Card
-                        ref={index + 1 === notes.length ? lastNoteRef : null}
-                        className='note'
-                        variant="outlined"
-                        sx={{ position: "relative", }}
-
+            {notes.map(({ noteAbstract, _id, createdAt }, index) => 
+            {
+                const noteDate = moment(new Date(createdAt)).format("hh:mm A DD/MM/YYYY");
+                return (
+                    <Grid
+                        item
+                        xl={2}
+                        lg={3}
+                        md={4}
+                        sm={6}
+                        xs={12}
+                        key={_id}
                     >
-                        <CardActionArea onClick={() => handleClickOpen({ noteAbstract: noteAbstract, noteId: _id })} sx={{ height: "100%", display: "flex", alignItems: "flex-start", justifyContent: "flex-start" }}>
-                            {/* <CardMedia
+                        <Card
+                            ref={index + 1 === notes.length ? lastNoteRef : null}
+                            className='note'
+                            variant="outlined"
+                            sx={{ position: "relative", }}
+
+                        >
+                            <CardActionArea onClick={() => handleClickOpen({ noteAbstract: noteAbstract, noteId: _id })} sx={{ height: "100%", display: "flex", alignItems: "flex-start", justifyContent: "flex-start" }}>
+                                {/* <CardMedia
                                 component="img"
                                 image={testImage}
                                 alt="Paella dish"
                                 height="100"
                             /> */}
-                            <CardContent className='note-abstract'
-                                sx={{ width: "100%", }}
-                            >
-                                <Typography variant="body1" sx={{
-                                    textOverflow: 'ellipsis',
-                                    whiteSpace: 'wrap',
-                                    maxWidth: '100%',
-                                    overflow: "hidden"
-                                }}  >
-                                    {noteAbstract}
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
+                                <CardContent className='note-abstract'
+                                    sx={{ width: "100%", height:"100%"}}
+                                >
+                                    <Typography variant="body1" gutterBottom sx={{
+                                        textOverflow: 'ellipsis',
+                                        whiteSpace: 'wrap',
+                                        maxWidth: '100%',
+                                        height:"70%",
+                                        overflow: "hidden"
+                                    }}  >
+                                        {noteAbstract}
+                                    </Typography>
+                                    <Typography variant="body2" sx={{ fontSize:11, textAlign:"right" }}>
+                                        {noteDate}
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
 
-                        <NoteActions
-                            trash={trash}
-                            isLoadingMoveNoteToTrashId={isLoadingMoveNoteToTrashId}
-                            isLoadingMoveNoteToTrash={isLoadingMoveNoteToTrash}
-                            moveNoteToTrash={moveNoteToTrash}
-                            handleClickEdit={handleClickEdit}
-                            noteId={_id}
-                            noteAbstract={noteAbstract}
-                            disabledEditBtn={false}
-                        />
-                    </Card>
-                </Grid>
-            ))}
+                            <NoteActions
+                                trash={trash}
+                                isLoadingMoveNoteToTrashId={isLoadingMoveNoteToTrashId}
+                                isLoadingMoveNoteToTrash={isLoadingMoveNoteToTrash}
+                                moveNoteToTrash={moveNoteToTrash}
+                                handleClickEdit={handleClickEdit}
+                                noteId={_id}
+                                noteAbstract={noteAbstract}
+                                disabledEditBtn={false}
+                            />
+                        </Card>
+                    </Grid>
+                )
+            }
+            )}
             {isLoadingGetAllNotes && <Box sx={{ width: "100%", textAlign: "center" }}><CircularProgress /></Box>}
             <NoteDialog
                 note={noteOpenedData}

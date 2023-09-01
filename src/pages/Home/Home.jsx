@@ -19,6 +19,7 @@ const Home = () =>
             <Route index element={<Navigate to="notes" replace={true} />} />
             <Route path='notes' element={<Notes />} />
             <Route path='notes/trash' element={<Trash />} />
+            {/* <Route path="*" element={<Navigate to="/notes" replace={true} />} />  */}
           </Routes>
         </Box>
       </Navbar>
