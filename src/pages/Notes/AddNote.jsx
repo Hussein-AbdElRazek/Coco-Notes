@@ -12,15 +12,14 @@ const AddNote = () =>
     } = useHttp();
     const handleAddNote = (values, { resetForm }) =>
     {
-        const getResponse = ({ message }) =>
+        const getResponse = ({ message, noteId }) =>
         {
             if (message === "success")
             {
                 values.createdAt = new Date();
+                values._id=noteId;
                 dispatch(notesActions.addNote(values))
                 resetForm();
-                //TODO when zezo handle id remove it
-                window.location.reload();
             }
         };
         addNote(

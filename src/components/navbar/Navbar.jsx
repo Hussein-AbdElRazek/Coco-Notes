@@ -101,8 +101,8 @@ function Navbar(props)
   const tabsUrl = {
     "/notes": 0,
     "/notes/trash": 1,
-    "/tasks": 3,
-    "/tasks/done": 4
+    "/tasks": 2,
+    "/tasks/done": 3
   };
   const [value, setValue] = React.useState(tabsUrl[url] || 0);
 

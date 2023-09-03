@@ -27,3 +27,10 @@
     height: 250px;
     max-width: 300px;
 }
+
+@media (max-width: 900px) {
+    .task-panel,
+    .sm-hidden {
+        display: none !important;
+    }
+}

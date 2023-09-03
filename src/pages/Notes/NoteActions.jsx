@@ -44,7 +44,8 @@ const NoteActions = (props) =>
                     </IconButton>
                 </>
             )}
-        </Box>)
+        </Box>
+        )
 }
 
 export default NoteActions

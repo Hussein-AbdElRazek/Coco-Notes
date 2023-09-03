@@ -75,7 +75,7 @@ const AllNotes = () =>
             getResponse
         );
     }
-
+    
     useEffect(() =>
     {
         const getResponse = ({ message, data, totalPages }) =>

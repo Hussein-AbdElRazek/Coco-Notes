@@ -17,6 +17,7 @@ const darkTheme = createTheme({
 });
 function App()
 {
+  //TODO add show password in sign in / up
   const authCtx = useContext(AuthContext);
   return (
     <ThemeProvider theme={darkTheme}>

@@ -32,16 +32,18 @@ const useHttp = () =>
                 throw new Error(data.message || data.Message)
             }
             let message;
-            if (data.message)
+            if (data.message || data.msesage)
             {
-                message = data.message;
+                message = data.message || data.msesage;
                 message = message.toLowerCase();
-                if (message.includes("success")) { popMessage(message, { variant: "success" }) }
+                if (message.includes("success") || message.includes("sucess")) { popMessage(message, { variant: "success" }) }
                 else { popMessage(message) }
 
             }
             if (message !== "success" &&
-                message !== "success and a verfication mail was sent")
+                message !== "sucess" &&
+                message !== "success and a verfication mail was sent"
+            )
             {
                 throw new Error(message)
             }

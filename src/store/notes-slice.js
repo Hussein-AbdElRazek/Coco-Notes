@@ -13,7 +13,7 @@ const notesSlice = createSlice({
     reducers: {
         addNote(state, action)
         {
-            state.notes.push(action.payload)
+            state.notes.unshift(action.payload)
         },
         mergeNotes(state, action)
         {
