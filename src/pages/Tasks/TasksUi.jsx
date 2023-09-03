@@ -45,7 +45,7 @@ const TasksUi = (props) =>
                 overflowY: 'scroll',
             }}
         >
-            {(tasks.length) ? (<LoadingButton sx={{ mt: 2 }} color="error"
+            {(tasks.length || pinedTasks.length) ? (<LoadingButton sx={{ mt: 2 }} color="error"
                 onClick={handleDeleteAllTasks} loading={isLoadingDeleteAllTasks}>Delete All Tasks</LoadingButton>) : null}
             {(!tasks.length && !pinedTasks.length && !isLoadingGetAllTasks) && (
                 <Typography sx={{ width: "100%", textAlign: "center", mt: 2 }}>No tasks yet!</Typography>
