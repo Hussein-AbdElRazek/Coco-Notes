@@ -16,6 +16,7 @@ const TaskActions = (props) =>
         handlePinTask,
         isPinned,
         task,
+        done,
     } = props;
     const [deleteDisabled, setDeleteDisabled] = useState(false);
     useEffect(() =>
@@ -38,12 +39,16 @@ const TaskActions = (props) =>
                     >
                         <DeleteRoundedIcon />
                     </IconButton>
-                    <IconButton className='sm-hidden' onClick={handleEditTask}>
-                        <EditIcon />
-                    </IconButton>
-                    <IconButton onClick={() => handlePinTask({ taskId: taskId })} disabled={isPinned}>
-                        <PushPinIcon sx={{ color: isPinned ? "var(--blue)" : "var(--white)" }} />
-                    </IconButton>
+                    {!done &&
+                        (<>
+                            <IconButton className='sm-hidden' onClick={handleEditTask}>
+                                <EditIcon />
+                            </IconButton>
+                            <IconButton onClick={() => handlePinTask({ taskId: taskId })} disabled={isPinned}>
+                                <PushPinIcon sx={{ color: isPinned ? "var(--blue)" : "var(--white)" }} />
+                            </IconButton>
+                        </>)
+                    }
                 </>
             )}
         </Box>

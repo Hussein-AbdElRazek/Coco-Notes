@@ -18,7 +18,7 @@ const Tasks = () =>
         xl={8}
         pt={1}
       >
-        <Box>
+        <Box pl={1}>
           <AddTask />
           <AllTasks />
         </Box>

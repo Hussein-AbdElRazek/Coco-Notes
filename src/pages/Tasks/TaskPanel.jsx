@@ -9,7 +9,7 @@ import { tasksActions } from '../../store/tasks-slice';
 import { taskValidationSchema } from './taskValidationSchema';
 import TaskForm from './TaskForm'
 
-const TaskPanel = () =>
+const TaskPanel = ({ done }) =>
 {
     const task = useSelector((state) => state.tasks.openedTask)
     const isEdit = useSelector((state) => state.tasks.isEdit)
@@ -74,23 +74,25 @@ const TaskPanel = () =>
                 validationSchema={taskValidationSchema}
                 panel={true}
             >
-                {!disabled ? (
-                    <Box sx={{ position: "absolute", bottom: "15px", right: "15px", }}>
-                        <Button type="button" onClick={handleDisable}>
-                            Cancel
-                        </Button>
-                        <LoadingButton disabled={isLoadingEditTask} loading={isLoadingEditTask} type="submit" >
-                            Save
-                        </LoadingButton>
-                    </Box>
-                ) : (
-                    <Box sx={{ position: "absolute", bottom: "15px", right: "15px", }}>
-                        <IconButton disabled={!disabled || !task.content} onClick={handleUnDisable}>
-                            <EditIcon />
-                        </IconButton>
-                    </Box>
-                )
-                }
+                {!done &&
+                    (!disabled ? (
+                        <Box sx={{ position: "absolute", bottom: "15px", right: "15px", }}>
+                            <Button type="button" onClick={handleDisable}>
+                                Cancel
+                            </Button>
+                            <LoadingButton disabled={isLoadingEditTask} loading={isLoadingEditTask} type="submit" >
+                                Save
+                            </LoadingButton>
+                        </Box>
+                    ) : (
+                        <Box sx={{ position: "absolute", bottom: "15px", right: "15px", }}>
+                            <IconButton disabled={!disabled || !task.content} onClick={handleUnDisable}>
+                                <EditIcon />
+                            </IconButton>
+                        </Box>
+                    )
+                    )}
+
 
             </TaskForm>
         </Box>

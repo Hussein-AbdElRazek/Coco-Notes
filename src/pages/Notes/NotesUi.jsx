@@ -68,6 +68,7 @@ const NotesUi = (props) =>
             columnSpacing={{ xs: 1, sm: 1, md: 1, lg: 3, xl: 3 }}
             sx={{ display: "flex", justifyContent: "center", alignItems: "center", }}
             my={3}
+            px={1}
         >
             {(notes.length === 0 && !isLoadingGetAllNotes) && <Typography sx={{ width: "100%", textAlign: "center" }}>No notes yet!</Typography>}
             {notes.map(({ noteAbstract, _id, createdAt }, index) => 

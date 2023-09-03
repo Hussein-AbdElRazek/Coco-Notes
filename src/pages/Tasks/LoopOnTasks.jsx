@@ -13,7 +13,8 @@ const LoopOnTasks = (props) =>
         handleMakeTaskDone,
         lastTaskRef,
         isLoadingGetAllTasks,
-        category
+        category,
+        done,
     } = props;
     return (
 
@@ -32,6 +33,7 @@ const LoopOnTasks = (props) =>
                         handleMakeTaskDone={handleMakeTaskDone}
                         handlePinTask={handlePinTask}
                         key={task._id}
+                        done={done}
                     />
                 )
             })}

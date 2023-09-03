@@ -129,7 +129,7 @@ function Navbar(props)
           >
             <MenuIcon />
           </IconButton>
-          <Link component={NavLink} to="/" variant='h6' onClick={() => setValue(0)}>
+          <Link sx={{ textDecoration: "none" }} component={NavLink} to="/" variant='h6' onClick={() => setValue(0)}>
             CoCo Notes
           </Link>
         </Toolbar>
@@ -140,7 +140,7 @@ function Navbar(props)
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider  />
+        <Divider />
 
         <Tabs orientation="vertical"
           value={value} onChange={handleChange} aria-label="navigation tabs">

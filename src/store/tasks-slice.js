@@ -6,7 +6,8 @@ const initialTasksState = {
     tasks: [],
     pinedTasks: [],
     openedTask: { title: "", content: "" },
-    isEdit: false
+    isEdit: false,
+    doneTasks: [],
 }
 
 const tasksSlice = createSlice({
@@ -96,6 +97,18 @@ const tasksSlice = createSlice({
             state.tasks = [];
             state.pinedTasks = [];
         },
+        deleteDoneTask(state, action)
+        {
+            state.doneTasks = state.doneTasks.filter(ele => ele._id !== action.payload._id)
+        },
+        deleteAllDoneTasks(state)
+        {
+            state.doneTasks = [];
+        },
+        mergeDoneTasks(state, action)
+        {
+            state.doneTasks = mergeToUnique(state.doneTasks, action.payload);
+        }
 
     }
 })

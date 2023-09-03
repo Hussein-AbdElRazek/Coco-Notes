@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Notes from '../Notes/Notes'
 import Trash from '../Notes/Trash'
 import Tasks from '../Tasks/Tasks'
+import DoneTasks from '../Tasks/DoneTasks'
 
 const Home = () =>
 {
@@ -21,6 +22,7 @@ const Home = () =>
             <Route path='notes' element={<Notes />} />
             <Route path='notes/trash' element={<Trash />} />
             <Route path='tasks' element={<Tasks />} />
+            <Route path='tasks/done' element={<DoneTasks />} />
             {/* <Route path="*" element={<Navigate to="/notes" replace={true} />} />  */}
           </Routes>
         </Box>
