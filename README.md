@@ -1,44 +1,51 @@
 # COCO Notes
 
-COCO Notes is website for manage your notes and tasks all in one place
+## Description
+**COCO Notes** is a web-based note-taking and task management application that provides users with an intuitive and efficient interface to organize their daily activities. The frontend is developed using modern web technologies to deliver a responsive, user-friendly experience. COCO Notes allows users to create, manage, and track their notes and tasks with seamless integration of essential features.
 
-## Visit Website from here:
+## Key Features
 
-https://coco-notes.vercel.app/
+### 1. **User Authentication**
+- Register a new account to start using COCO Notes.
+- Securely access your personalized notes and tasks.
+- Ensure the authenticity of user accounts.
+- Reset your password in case of account access issues.
 
-## Available Scripts
+### 2. **Note Management**
+- Create new notes for organizing thoughts, ideas, or tasks.
+- Update existing notes as needed.
+- Archive unwanted notes into the trash for later review.
+- View a complete list of saved notes.
+- Access notes that have been moved to the trash.
+- Permanently delete all notes in the trash.
 
-In the project directory, you can run:
+### 3. **Task Management**
+- Create new tasks to stay on top of your to-do list.
+- Highlight important tasks or notes for quick access.
+- Mark completed tasks to track progress.
+- View all tasks that have been marked as completed.
+- Retrieve a list of all active tasks.
+- Update task details to reflect changes.
+- Remove individual tasks as needed.
+- Bulk delete all active tasks.
+- Clear the completed tasks list.
+- Remove specific tasks from the completed list.
 
-### `npm start`
+### 4. **Password Management**
+- Change your password for enhanced security.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
+## Technologies Used
+The following technologies and packages were used in building **COCO Notes**:
 
 
+- **Material UI (MUI)**
+- **@reduxjs/toolkit**
+- **Formik**
+- **Moment**
+- **Notistack**
+- **React.JS**
+- **Redux**
+- **Yup**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+This project focuses on delivering a seamless user experience while ensuring data organization, security, and accessibility.
